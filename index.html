@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молодёжная политика | Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+<style>
+        /* Стили только для главной страницы */
+        .hero {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            padding: 4rem 0 5rem;
+        }
+        
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-badge {
+            background: var(--primary-soft);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--dark-text);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image svg {
+            max-width: 100%;
+            width: 380px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-soft);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+        
+        .directions-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .direction-preview-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .direction-preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-soft);
+        }
+        
+        .direction-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-soft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+        
+        .direction-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .direction-preview-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-text);
+        }
+        
+        .direction-preview-card p {
+            color: var(--gray-text);
+            line-height: 1.5;
+        }
+        
+        .events-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .event-preview-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .event-preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .event-preview-date {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0 1.2rem;
+        }
+        
+        .event-preview-content {
+            padding: 1.2rem;
+        }
+        
+        .event-preview-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .event-preview-location {
+            color: var(--primary);
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .event-preview-desc {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0.8rem 0;
+        }
+        
+        .team-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .team-preview-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .team-preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .team-preview-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .team-preview-avatar i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .team-preview-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-text);
+        }
+        
+        .team-preview-card p {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .cta-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 32px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta-card p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+        }
+        
+        .cta-card .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .cta-card .btn-primary:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+        
+        @media (max-width: 800px) {
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content p {
+                max-width: 100%;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .cta-card {
+                padding: 2rem;
+            }
+            .cta-card h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1>М<span class="red-letter">О</span>Я КАРЬЕРА</h1>
+                <span>развитие • инициативы • будущее</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="directions.html">Направления</a></li>
+                <li><a href="team.html">Команда</a></li>
+                <li><a href="events.html">События</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <button class="btn-outline" onclick="alert('Присоединяйся к движению! ✨')">
+                <i class="fas fa-user-plus"></i> Вступить
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-bolt"></i> #МолодёжьВДеле</div>
+                <h1>Создаём среду,<br>где рождаются лидеры</h1>
+                <p>Пространство для самореализации, социальных проектов и дружного сообщества. Стань частью команды, которая меняет будущее уже сегодня.</p>
+                <div class="btn-group">
+                    <a href="contacts.html" class="btn-primary">Стать участником →</a>
+                    <a href="events.html" class="btn-secondary">Наши проекты</a>
+                </div>
+            </div>
+          <!-- Фото в папке images -->
+<div class="hero-image">
+    <img src="images/logo.jpg" 
+         alt="Молодёжное сообщество" 
+         style="max-width: 100%; width: 300px; height: auto; 
+                border-radius: 28px; 
+                box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);">
+</div>
+        </div>
+    </section>
+
+    <!-- Статистика в карточках -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">О нас в цифрах</h2>
+            <p class="section-subtitle">Результаты нашей работы за годы активной деятельности</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">10 000+</div>
+                    <p>участников мероприятий</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <div class="stat-number">много+</div>
+                    <p>образовательных программ</p>
+                </div>
+              
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-number">очень много</div>
+                    <p>реализованных проектов</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="about.html" class="btn-link">Подробнее о нас <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Направления в карточках -->
+    <section class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Направления деятельности</h2>
+            <p class="section-subtitle">Выбирай то, что откликается, и развивайся вместе с нами</p>
+            <div class="directions-preview-grid">
+                <div class="direction-preview-card">
+                    <div class="direction-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Образование и навыки</h3>
+                    <p>Лекции, воркшопы, Soft skills курсы от экспертов-практиков. Развивай гибкие навыки и лидерские качества.</p>
+                </div>
+                <div class="direction-preview-card">
+                    <div class="direction-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Социальное проектирование</h3>
+                    <p>Грантовая поддержка, акселераторы и наставничество для твоих социальных и бизнес-инициатив.</p>
+                </div>
+                <div class="direction-preview-card">
+                    <div class="direction-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Международное сотрудничество</h3>
+                    <p>Обмены, стажировки и форумы с участием молодёжи из стран СНГ, Европы и Азии.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="directions.html" class="btn-link">Все направления <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- События в карточках -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Актуальные события</h2>
+            <p class="section-subtitle">Будь в курсе главных молодёжных форумов и встреч</p>
+            <div class="events-preview-grid">
+                <div class="event-preview-card">
+                    <div class="event-preview-date"><i class="far fa-calendar-alt"></i> 15-17 мая 2026</div>
+                    <div class="event-preview-content">
+                        <h3>Всероссийский форум «Молодёжь.Смыслы»</h3>
+                        <div class="event-preview-location"><i class="fas fa-map-marker-alt"></i> Москва</div>
+                        <div class="event-preview-desc">Образовательный интенсив, встречи с топ-спикерами и грантовый конкурс.</div>
+                        <a href="events.html" class="btn-link">Подробнее →</a>
+                    </div>
+                </div>
+                <div class="event-preview-card">
+                    <div class="event-preview-date"><i class="far fa-calendar-alt"></i> 2-4 июня 2026</div>
+                    <div class="event-preview-content">
+                        <h3>Хакатон социальных проектов</h3>
+                        <div class="event-preview-location"><i class="fas fa-map-marker-alt"></i> Санкт-Петербург + онлайн</div>
+                        <div class="event-preview-desc">За 48 часов разработай решение для социальных проблем города. Призы до 300 000₽.</div>
+                        <a href="events.html" class="btn-link">Подробнее →</a>
+                    </div>
+                </div>
+                <div class="event-preview-card">
+                    <div class="event-preview-date"><i class="far fa-calendar-alt"></i> Старт 10 апреля</div>
+                    <div class="event-preview-content">
+                        <h3>Школа молодого политика</h3>
+                        <div class="event-preview-location"><i class="fas fa-video"></i> Онлайн-формат</div>
+                        <div class="event-preview-desc">Бесплатный 6-недельный курс по основам управления, публичным выступлениям.</div>
+                        <a href="events.html" class="btn-link">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="events.html" class="btn-link">Все события <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Команда в карточках -->
+    <section class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Наша команда</h2>
+            <p class="section-subtitle">Энтузиасты, которые каждый день создают возможности для молодёжи</p>
+            <div class="team-preview-grid">
+                <div class="team-preview-card">
+                    <div class="team-preview-avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Анна Ковалева</h4>
+                    <p>Руководитель</p>
+                </div>
+                <div class="team-preview-card">
+                    <div class="team-preview-avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Дмитрий Волков</h4>
+                    <p>Программный директор</p>
+                </div>
+                <div class="team-preview-card">
+                    <div class="team-preview-avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Екатерина Мороз</h4>
+                    <p>PR и коммуникации</p>
+                </div>
+                <div class="team-preview-card">
+                    <div class="team-preview-avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Илья Громов</h4>
+                    <p>Координатор проектов</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="team.html" class="btn-link">Познакомиться с командой <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию в карточке -->
+    <section>
+        <div class="container">
+            <div class="cta-card">
+                <h2>Готов изменить будущее вместе с нами?</h2>
+                <p>Присоединяйся к молодёжному движению, реализуй свои идеи и находи единомышленников</p>
+                <a href="contacts.html" class="btn-primary">Стать участником →</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="logo">
+            <h1>МОЯ КАРЬЕРА</h1>
+        </div>
+        <p>Организация, развивающая молодёжную политику и поддерживающая инициативы нового поколения.</p>
+        <div class="social-links" style="margin: 1.5rem 0;">
+           <a href="https://t.me/minmolkchr_09"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="font-size: 0.85rem;">© 2026 Все права защищены. Вместе создаём будущее.</p>
+    </div>
+</footer>
+<script>
+    // Автоматическое выделение активного пункта меню
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll('.nav-links a');
+    
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === "" && linkPage === "index.html")) {
+            link.classList.add('active');
+        }
+    });
+</script>
+<script>
+    // 1. Гамбургер-меню
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Закрыть меню при клике на ссылку
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+    }
+    
+    // 2. Скрытие меню при прокрутке на мобильных
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 50;
+    
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth <= 768) {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
+                // Прокрутка вниз - скрываем меню
+                header.style.transform = 'translateY(-100%)';
+                header.style.transition = 'transform 0.3s ease';
+                
+                // Если открыто гамбургер-меню, закрываем его
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            } else {
+                // Прокрутка вверх - показываем меню
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+    
+    // При изменении размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+</script>
+</body>
+</html>

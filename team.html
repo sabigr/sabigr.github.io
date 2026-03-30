@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда | Молодёжная политика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+ <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-soft);
+        }
+        
+        .team-avatar {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .team-avatar i {
+            font-size: 5rem;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-avatar i {
+            transform: scale(1.05);
+        }
+        
+        .team-social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-social {
+            opacity: 1;
+        }
+        
+        .team-social a {
+            color: white;
+            font-size: 1.2rem;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-text);
+        }
+        
+        .team-position {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .team-bio {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background: var(--primary-soft);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .team-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .team-stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            min-width: 160px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .team-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .join-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 32px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .join-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .join-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+        }
+        
+        .join-section .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .join-section .btn-primary:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+        
+        @media (max-width: 700px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .join-section {
+                padding: 2rem;
+            }
+            .join-section h2 {
+                font-size: 1.5rem;
+            }
+            .team-stats {
+                gap: 1rem;
+            }
+            .team-stat-card {
+                padding: 1rem;
+                min-width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1>М<span class="red-letter">О</span>Я КАРЬЕРА</h1>
+                <span>развитие • инициативы • будущее</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="directions.html">Направления</a></li>
+                <li><a href="team.html">Команда</a></li>
+                <li><a href="events.html">События</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <button class="btn-outline" onclick="alert('Присоединяйся к движению! ✨')">
+                <i class="fas fa-user-plus"></i> Вступить
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="page-header">
+        <div class="container">
+            <h1>Наша команда</h1>
+            <p>Профессионалы, энтузиасты и вдохновители, которые каждый день работают для тебя</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <!-- Статистика команды в карточках -->
+            <div class="team-stats">
+                <div class="team-stat-card">
+                    <div class="team-stat-number">12</div>
+                    <p>постоянных сотрудников</p>
+                </div>
+                <div class="team-stat-card">
+                    <div class="team-stat-number">150+</div>
+                    <p>волонтёров</p>
+                </div>
+                <div class="team-stat-card">
+                    <div class="team-stat-number">8</div>
+                    <p>регионов</p>
+                </div>
+                <div class="team-stat-card">
+                    <div class="team-stat-number">5+</div>
+                    <p>лет опыта</p>
+                </div>
+            </div>
+
+            <!-- Карточки членов команды (без изображений) -->
+            <div class="team-grid">
+                <!-- Анна Ковалева -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Анна Ковалева</h3>
+                        <div class="team-position">Руководитель организации</div>
+                        <div class="team-bio">Эксперт в области молодёжной политики с 10-летним стажем. Вдохновляет команду на новые достижения.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">Стратегия</span>
+                            <span class="skill-tag">Управление</span>
+                            <span class="skill-tag">Гранты</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дмитрий Волков -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Дмитрий Волков</h3>
+                        <div class="team-position">Программный директор</div>
+                        <div class="team-bio">Разрабатывает образовательные программы и акселераторы. Более 50 успешных проектов за плечами.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">Образование</span>
+                            <span class="skill-tag">Акселерация</span>
+                            <span class="skill-tag">Менторство</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Екатерина Мороз -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Екатерина Мороз</h3>
+                        <div class="team-position">PR и коммуникации</div>
+                        <div class="team-bio">Создаёт медиастратегии и рассказывает о наших проектах. Мастер социальных сетей и связей с общественностью.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">SMM</span>
+                            <span class="skill-tag">PR</span>
+                            <span class="skill-tag">Контент</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Илья Громов -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Илья Громов</h3>
+                        <div class="team-position">Координатор проектов</div>
+                        <div class="team-bio">Организует мероприятия и следит за их реализацией. Наставник молодёжных стартапов.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">Управление проектами</span>
+                            <span class="skill-tag">События</span>
+                            <span class="skill-tag">Стартапы</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мария Соколова -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Мария Соколова</h3>
+                        <div class="team-position">Руководитель волонтёрского центра</div>
+                        <div class="team-bio">Координирует работу 150+ волонтёров по всей стране. Организует социальные акции и помощь.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">Волонтёрство</span>
+                            <span class="skill-tag">Социальные проекты</span>
+                            <span class="skill-tag">Координация</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Алексей Новиков -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="team-social-overlay">
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Алексей Новиков</h3>
+                        <div class="team-position">Технический директор</div>
+                        <div class="team-bio">Отвечает за IT-инфраструктуру и цифровые сервисы организации. Создаёт удобные платформы для участников.</div>
+                        <div class="team-skills">
+                            <span class="skill-tag">Разработка</span>
+                            <span class="skill-tag">DevOps</span>
+                            <span class="skill-tag">UX/UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция присоединения -->
+            <div class="join-section">
+                <h2>Хочешь стать частью команды?</h2>
+                <p>Мы всегда рады новым талантам! Присоединяйся к нашей команде профессионалов и единомышленников.</p>
+                <a href="contacts.html" class="btn-primary">Отправить резюме →</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="logo">
+            <h1>МОЯ КАРЬЕРА</h1>
+        </div>
+        <p>Организация, развивающая молодёжную политику и поддерживающая инициативы нового поколения.</p>
+        <div class="social-links" style="margin: 1.5rem 0;">
+           <a href="https://t.me/minmolkchr_09"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="font-size: 0.85rem;">© 2026 Все права защищены. Вместе создаём будущее.</p>
+    </div>
+</footer>
+<script>
+    // Автоматическое выделение активного пункта меню
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll('.nav-links a');
+    
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === "" && linkPage === "index.html")) {
+            link.classList.add('active');
+        }
+    });
+</script>
+<script>
+    // 1. Гамбургер-меню
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Закрыть меню при клике на ссылку
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+    }
+    
+    // 2. Скрытие меню при прокрутке на мобильных
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 50;
+    
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth <= 768) {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
+                // Прокрутка вниз - скрываем меню
+                header.style.transform = 'translateY(-100%)';
+                header.style.transition = 'transform 0.3s ease';
+                
+                // Если открыто гамбургер-меню, закрываем его
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            } else {
+                // Прокрутка вверх - показываем меню
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+    
+    // При изменении размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+</script>
+</body>
+</html>

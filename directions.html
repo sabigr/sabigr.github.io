@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Направления | Молодёжная политика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+ <style>
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .direction-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .direction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-soft);
+        }
+        
+        .direction-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-soft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .direction-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .direction-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-text);
+        }
+        
+        .direction-card > p {
+            color: var(--gray-text);
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+        
+        .direction-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .direction-features li {
+            padding: 0.6rem 0;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .direction-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .direction-features li i {
+            color: var(--primary);
+            width: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .cta-block {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 32px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-block h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta-block p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .cta-block .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .cta-block .btn-primary:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+        
+        @media (max-width: 700px) {
+            .directions-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-block {
+                padding: 2rem;
+            }
+            .cta-block h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1>М<span class="red-letter">О</span>Я КАРЬЕРА</h1>
+                <span>развитие • инициативы • будущее</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="directions.html">Направления</a></li>
+                <li><a href="team.html">Команда</a></li>
+                <li><a href="events.html">События</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <button class="btn-outline" onclick="alert('Присоединяйся к движению! ✨')">
+                <i class="fas fa-user-plus"></i> Вступить
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="page-header">
+        <div class="container">
+            <h1>Направления деятельности</h1>
+            <p>Выбери свой путь развития и стань частью молодёжного движения</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="directions-grid">
+                <!-- Карточка 1: Образование -->
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Образование и навыки</h3>
+                    <p>Развивай hard и soft skills вместе с лучшими экспертами</p>
+                    <ul class="direction-features">
+                        <li><i class="fas fa-check-circle"></i> Более 50 образовательных программ</li>
+                        <li><i class="fas fa-check-circle"></i> Сертификаты государственного образца</li>
+                        <li><i class="fas fa-check-circle"></i> Менторская поддержка</li>
+                        <li><i class="fas fa-check-circle"></i> Онлайн и офлайн форматы</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 2: Социальное проектирование -->
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Социальное проектирование</h3>
+                    <p>Превращай идеи в реальные проекты, меняющие жизнь</p>
+                    <ul class="direction-features">
+                        <li><i class="fas fa-check-circle"></i> Грантовая поддержка до 500 000₽</li>
+                        <li><i class="fas fa-check-circle"></i> Акселератор социальных проектов</li>
+                        <li><i class="fas fa-check-circle"></i> Наставничество от экспертов</li>
+                        <li><i class="fas fa-check-circle"></i> Юридическое сопровождение</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 3: Международное сотрудничество -->
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Международное сотрудничество</h3>
+                    <p>Расширяй горизонты и обменивайся опытом с молодёжью мира</p>
+                    <ul class="direction-features">
+                        <li><i class="fas fa-check-circle"></i> Образовательные стажировки за рубежом</li>
+                        <li><i class="fas fa-check-circle"></i> Международные форумы</li>
+                        <li><i class="fas fa-check-circle"></i> Культурные обмены</li>
+                        <li><i class="fas fa-check-circle"></i> Изучение иностранных языков</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 4: События и досуг -->
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>События и досуг</h3>
+                    <p>Живи ярко, находи друзей и создавай незабываемые моменты</p>
+                    <ul class="direction-features">
+                        <li><i class="fas fa-check-circle"></i> Ежемесячные молодёжные фестивали</li>
+                        <li><i class="fas fa-check-circle"></i> Квизы, хакатоны, турниры</li>
+                        <li><i class="fas fa-check-circle"></i> Экологические и волонтёрские акции</li>
+                        <li><i class="fas fa-check-circle"></i> Творческие вечера и концерты</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 5: Медиа и коммуникации -->
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Медиа и коммуникации</h3>
+                    <p>Учись создавать контент и продвигать свои идеи</p>
+                    <ul class="direction-features">
+                        <li><i class="fas fa-check-circle"></i> Школа блогеров и журналистов</li>
+                        <li><i class="fas fa-check-circle"></i> Медиаподдержка проектов</li>
+                        <li><i class="fas fa-check-circle"></i> Студия звукозаписи</li>
+                        <li><i class="fas fa-check-circle"></i> Фото и видео продакшн</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Блок призыва к действию -->
+            <div class="cta-block">
+                <h2>Не нашёл своё направление?</h2>
+                <p>Предложи свою идею — мы поддержим инициативу!</p>
+                <a href="contacts.html" class="btn-primary">Предложить направление →</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="logo">
+            <h1>МОЯ КАРЬЕРА</h1>
+        </div>
+        <p>Организация, развивающая молодёжную политику и поддерживающая инициативы нового поколения.</p>
+       <div class="social-links" style="margin: 1.5rem 0;">
+           <a href="https://t.me/minmolkchr_09"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="font-size: 0.85rem;">© 2026 Все права защищены. Вместе создаём будущее.</p>
+    </div>
+</footer>
+<script>
+    // Автоматическое выделение активного пункта меню
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll('.nav-links a');
+    
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === "" && linkPage === "index.html")) {
+            link.classList.add('active');
+        }
+    });
+</script>
+<script>
+    // 1. Гамбургер-меню
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Закрыть меню при клике на ссылку
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+    }
+    
+    // 2. Скрытие меню при прокрутке на мобильных
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 50;
+    
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth <= 768) {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
+                // Прокрутка вниз - скрываем меню
+                header.style.transform = 'translateY(-100%)';
+                header.style.transition = 'transform 0.3s ease';
+                
+                // Если открыто гамбургер-меню, закрываем его
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            } else {
+                // Прокрутка вверх - показываем меню
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+    
+    // При изменении размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            header.style.transform = 'translateY(0)';
+        }
+    });
+</script>
+</body>
+</html>
